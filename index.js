@@ -7,9 +7,6 @@ function createMagicPotion(potions, target) {
   // Result
   let result = [];
 
-  // Check second potion
-  let secondPotion = Infinity;
-
   // Sort the potions
   for (let i = 0; i < potions.length; i++) {
     // Get potion 1
@@ -21,9 +18,9 @@ function createMagicPotion(potions, target) {
       let potion2 = potions[j];
 
       // Check if the sum of the potions is equal to the target and the second potion is less than the second potion
-      if (potion1 + potion2 === target && potion2 < secondPotion) {
+      if (potion1 + potion2 === target) {
         // Get the result
-        result = [i, j];
+        result = result[1] < j ? result : [i, j];
       }
     }
   }
